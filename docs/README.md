@@ -18,7 +18,7 @@ add it to Emacs, add the following quoted list to your
 # Usage
 
 Toggle the minor mode using `M-x naive-indent-minor-mode`. You can
-also use the functions mapped by the major mode directly:
+also use the functions mapped by the minor mode directly:
 
 * **`(naive-indent-backtab)`**
 
