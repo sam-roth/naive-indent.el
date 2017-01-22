@@ -41,22 +41,26 @@ function INDENT-FUNC."
       (end-of-line))))
 
 (defun naive-indent-backtab ()
-  "Backtab naively."
+  "Backtab naively. Shift the line left by one tab stop."
   (interactive)
   (naive-indent--indent 'indent-rigidly-left-to-tab-stop))
 
 (defun naive-indent-tab ()
-  "Tab naively."
+  "Tab naively. Shift the line right by one tab stop."
   (interactive)
   (naive-indent--indent 'indent-rigidly-right-to-tab-stop))
 
 (define-minor-mode naive-indent-minor-mode
-  "Minor mode with traditional mode-unaware tab key behavior"
+  "Minor mode with the mode-unaware tab key behavior similar to \
+that found in most text editors."
   :lighter "NaiveIndent"
   :keymap '(("\t" . naive-indent-tab)
             ([backtab] . naive-indent-backtab)))
 
 (when (require 'evil nil 'noerror)
+  ;; Ensure minor mode keybindings take place of evil-mode's defaults
+  ;; since not doing this would defeat the entire purpose of this
+  ;; mode.
   (evil-make-overriding-map naive-indent-minor-mode-map 'insert)
   (add-hook 'naive-indent-minor-mode-hook #'evil-normalize-keymaps))
 
