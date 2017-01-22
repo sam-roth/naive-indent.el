@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+# Function
 
-You can use the [editor on GitHub](https://github.com/sam-roth/naive-indent.el/edit/master/docs/README.md) to maintain and preview the content for your website in Markdown files.
+The `naive-indent` package provides a minor mode that indents text by
+one tab stop upon pressing the tab key and dedents it by one tab stop
+upon pressing shift-tab. This is useful for working with files for
+which no minor mode is available.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Installation
 
-### Markdown
+This package hasn't been published to a major package archive yet. To
+add it to Emacs, add the following quoted list to your
+`package-archives` list and install the `naive-indent` package:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```elisp
+("naive-indent" . "https://sam-roth.github.io/naive-indent.el/archive/")
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+# Usage
 
-### Jekyll Themes
+Toggle the minor mode using `M-x naive-indent-minor-mode`. You can
+also use the functions mapped by the major mode directly:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sam-roth/naive-indent.el/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+* **`(naive-indent-backtab)`**
 
-### Support or Contact
+  Shift the current line left by one tab stop.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* **`(naive-indent-tab)`**
+
+  Shift the current line right by one tab stop.
